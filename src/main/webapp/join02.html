@@ -112,9 +112,9 @@ function join02(){
 /* 정규표현식은 /~/로 묶어준다 */
 function pwchk(t){
 	if(t.value.length >=8 && t.value.length <= 12){		
-		let regE = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+		let reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 		
-		if(!regE.test(t.value)){
+		if(!reg.test(t.value)){
 		    alert("비밀번호 숫자, 영문자, 특수문자를 포함해야함");	
 		    return false;
 		}
