@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,14 +12,10 @@
 	
 	<div class="pd16">
 	<!--컨텐츠시작 -->
-		<div>
-			<div class="tC">
-				<label><input type="checkbox" onclick="chkAuto(this);"/>전체동의</label>
-			</div>
-		</div>
+	<form action="join02.html" onsubmit="return join02();">
 		<div class="joinbox">
 			<label for="agree1">서비스 이용약관 동의</label>
-			<input type="checkbox" id="agree1"checked="checked" required="required"/>
+			<input type="checkbox" id="agree1" name="" value="" checked="checked"/>
 			
 			<div class="terms">
 			제1조 목적...
@@ -28,7 +24,7 @@
 		
 		<div class="joinbox">
 			<label for="agree2">개인정보 수집 및 이용동의</label>
-			<input type="checkbox" id="agree2" required="required"/>
+			<input type="checkbox" id="agree2" name="" value="" required="required"/>
 			
 			<div class="terms">
 			'주식회사 ...........
@@ -37,7 +33,7 @@
 		
 		<div class="joinbox">
 			<label for="agree3">개인정보 제3자 제공 동의</label>
-			<input type="checkbox" id="agree3" required="required"/>
+			<input type="checkbox" id="agree3"/>
 			
 			<div class="terms">
 			가람관광여행사........
@@ -47,54 +43,37 @@
 		<div>
 			<div class="joinbtn tC">
 			<button onclick="history.go(-1);">취소</button>
-			<button type="button" onclick="join02();">확인</button>
+			<button type="submit">확인</button>
 			</div>
 		</div>
+	</form>
 	<!-- 컨텐츠 끝 -->	
 	</div>	
 </div>
 <!--자바스크립트 코드 -->
 <script>
-let agree1 = document.getElementById("agree1");
-let agree2 = document.getElementById("agree2");
-let agree3 = document.getElementById("agree3");
-
 function join02(){
-	
+	let agree1 = document.getElementById("agree1");
+	let agree2 = document.getElementById("agree2");
 	//체크박스 체크여부 확인
 	agree1.checked;
 	
 	if(!agree1.checked){
 		alert("서비스 이용약관 동의 체크박스 확인");
 		agree1.focus(); 
-		return;
+		return false;
 	}
 	if(!agree2.checked){
 		alert("개인정보 수집 및 이용동의 체크박스 확인");
 		agree2.focus(); 
-		return;
+		return false;
 	}
 	if(!agree3.checked){
 		alert("개인정보 제3자 제공 동의 체크박스 확인");
 		agree3.focus(); 
-		return;
+		return false;
 	}
-	location.href="join02.html";
-	//location.replace("join02.html"); //대체 - history.go(-1);가 문제생김
-	//location.reload(); // 새로고침
-}
-
-function chkAuto(t){
-	if(t.checked){
-		agree1.checked=true;
-		agree2.checked=true;
-		agree3.checked=true;
-	}else{
-		agree1.checked=false;
-		agree2.checked=false;
-		agree3.checked=false;
-	}
-	console.log("전체동의"+ t.checked);
+	return true;
 }
 </script>
 </body>

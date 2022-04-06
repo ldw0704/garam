@@ -13,15 +13,15 @@
 	</div>
 	
 	<div class="a01">
-		<form method="post" action="mypage.html">
+		<form method="post" action="mypage.html" onsubmit="return loginChk()">
 			<div>
 				<span>ID</span>
-				<input type="text" name="" id="mid" value="" required="required"/>
+				<input type="text" name="" id="mid" value="" />
 			</div>
 					
 			<div>
 				<span>PW</span>
-				<input type="password" name="" id="mpw" value="" required/>
+				<input type="password" name="" id="mpw" value="" />
 			</div>
 
 			<div>
@@ -37,7 +37,23 @@
 </div>
 <!--자바스크립트코드-->
 <script>
-
+function loginChk(){
+	let mid = document.getElementById("mid");
+	let mpw = document.getElementById("mpw");
+	
+	if(mid.value == ""){
+		alert("아이디를 입력하세요");
+		mid.focus();
+		return false;
+	}
+	if(mpw.value == ""){
+		alert("비밀번호를 입력하세요");
+		mpw.focus();
+		return false;
+	}
+	console.log("폼안의 전송버튼을 누름"+(mid.value == ""));
+	return true;	
+}
 </script>
 </body>
 </html>
