@@ -11,19 +11,17 @@
 	<div class="">
 		<img src="img/logo.png" alt="로고"/>
 	</div>
-	<div id="errMsg" style="color: red; margin-top: 30px; height: 20px;">
 	
-	</div>
-	<div class="a01">	
-		<form method="post" action="mypage.html" onsubmit="return login();">
+	<div class="a01">
+		<form method="post" action="mypage.html">
 			<div>
 				<span>ID</span>
-				<input type="text" name="" id="mid" value=""/>
+				<input type="text" name="" id="mid" value="" required="required"/>
 			</div>
 					
 			<div>
 				<span>PW</span>
-				<input type="password" name="" id="mpw" value=""/>
+				<input type="password" name="" id="mpw" value="" required/>
 			</div>
 
 			<div>
@@ -39,22 +37,7 @@
 </div>
 <!--자바스크립트코드-->
 <script>
-function login(){
-	let mid = document.getElementById("mid");
-	let errMsg = document.getElementById("errMsg");
-	let mpw = document.getElementById("mpw");
-	
-	if(mid.value == ''){
-		errMsg.innerHTML = "아이디(휴대폰번호)를 입력하세요";
-		return false;
-	}
-	if(mpw.value == ""){
-		errMsg.innerHTML = "비밀번호를 입력하세요";
-		return false;
-	}
-	console.log("login");
-	return true;
-}
+
 </script>
 </body>
 </html>
